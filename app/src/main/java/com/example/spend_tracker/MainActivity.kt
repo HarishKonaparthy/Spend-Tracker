@@ -48,8 +48,7 @@ class MainActivity : AppCompatActivity() {
             tvTimestamp.text = finalTimestamp   // updates every second
         }
 
-        timer.start()
-
+//        timer.start()
         timer.start()
 
         // Configure navigation destinations

@@ -33,7 +33,7 @@ import java.nio.charset.StandardCharsets
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DebitFragment : Fragment() {
+class JewelFragment : Fragment() {
 
     private lateinit var fragmentDateEditText: EditText
     private lateinit var et24k: EditText
@@ -45,8 +45,9 @@ class DebitFragment : Fragment() {
     private val CHANNEL_ID = "jewel_tracker_channel"
 
     private val GOOGLE_SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycbwdKRAF8mka3wgRrROQGC9ruDjT_xCcMrH0tp5pWj5vPCxXUehLKqDqRPiReeKFoFnN/exec"
+        "https://script.google.com/macros/s/AKfycbw7p105QYmufHx9kGoxjeFPmA3meUboVV_XJng8x0yjkGgJrNCsV7Ik8eoMzZ-FIWLZ/exec"
 
+    // ---- Notification retry holder ----
     private var pendingNotificationData: NotificationData? = null
 
     data class NotificationData(
@@ -70,7 +71,9 @@ class DebitFragment : Fragment() {
         etplt = view.findViewById(R.id.etplt)
         etsilv = view.findViewById(R.id.etsilv)
 
-        DatePickerHelper(requireActivity()).attachToEditText(fragmentDateEditText)
+        DatePickerHelper(requireActivity())
+            .attachToEditText(fragmentDateEditText)
+
         setTodaysDate()
 
         view.findViewById<MaterialButton>(R.id.btnSubmit).setOnClickListener {
@@ -81,23 +84,52 @@ class DebitFragment : Fragment() {
     }
 
     private fun setTodaysDate() {
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        fragmentDateEditText.setText(dateFormat.format(Date()))
+        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        fragmentDateEditText.setText(sdf.format(Date()))
     }
 
     private fun submitFormData() {
 
-        val date = fragmentDateEditText.text.toString()
+        val date = fragmentDateEditText.text.toString().trim()
         val gold24k = et24k.text.toString().trim()
         val gold22k = et22k.text.toString().trim()
         val platinum = etplt.text.toString().trim()
         val silver = etsilv.text.toString().trim()
 
-        if (date.isEmpty()) {
-            Toast.makeText(requireContext(), "Select date", Toast.LENGTH_SHORT).show()
-            fragmentDateEditText.requestFocus()
-            showKeyboard(fragmentDateEditText)
-            return
+        fun showKeyboard(view: View) {
+            val imm =
+                requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+        }
+
+        // -------- VALIDATION (Debit style) --------
+        when {
+            date.isEmpty() -> {
+                Toast.makeText(requireContext(), "Select date", Toast.LENGTH_SHORT).show()
+                fragmentDateEditText.requestFocus()
+                showKeyboard(fragmentDateEditText)
+                return
+            }
+
+            gold24k.isEmpty() -> {
+                Toast.makeText(requireContext(), "24K Gold rate required", Toast.LENGTH_SHORT).show()
+                et24k.requestFocus(); showKeyboard(et24k); return
+            }
+
+            gold22k.isEmpty() -> {
+                Toast.makeText(requireContext(), "22K Gold rate required", Toast.LENGTH_SHORT).show()
+                et22k.requestFocus(); showKeyboard(et22k); return
+            }
+
+            platinum.isEmpty() -> {
+                Toast.makeText(requireContext(), "Platinum rate required", Toast.LENGTH_SHORT).show()
+                etplt.requestFocus(); showKeyboard(etplt); return
+            }
+
+            silver.isEmpty() -> {
+                Toast.makeText(requireContext(), "Silver rate required", Toast.LENGTH_SHORT).show()
+                etsilv.requestFocus(); showKeyboard(etsilv); return
+            }
         }
 
         Thread {
@@ -128,7 +160,7 @@ class DebitFragment : Fragment() {
                 requireActivity().runOnUiThread {
                     AlertDialog.Builder(requireContext())
                         .setTitle("Success")
-                        .setMessage("Rates submitted successfully")
+                        .setMessage("Jewelry rates submitted")
                         .setPositiveButton("OK", null)
                         .show()
 
@@ -138,19 +170,17 @@ class DebitFragment : Fragment() {
 
             } catch (e: Exception) {
                 requireActivity().runOnUiThread {
-                    Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        requireContext(),
+                        e.message,
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
         }.start()
     }
 
-    private fun showKeyboard(view: View) {
-        val imm =
-            requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
-    }
-
-    // ================= NOTIFICATION ===================
+    // ================= NOTIFICATION =================
 
     private fun showSubmissionNotification(
         gold24k: String,
@@ -162,8 +192,9 @@ class DebitFragment : Fragment() {
             requireContext().checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
             != PackageManager.PERMISSION_GRANTED
         ) {
-            pendingNotificationData =
-                NotificationData(gold24k, gold22k, platinum, silver)
+            pendingNotificationData = NotificationData(
+                gold24k, gold22k, platinum, silver
+            )
 
             requestPermissions(
                 arrayOf(Manifest.permission.POST_NOTIFICATIONS),
