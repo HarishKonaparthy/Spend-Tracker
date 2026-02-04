@@ -36,7 +36,7 @@ import java.nio.charset.StandardCharsets
 import java.text.SimpleDateFormat
 import java.util.*
 
-class JewelFragment : Fragment() {
+class DebitFragment : Fragment() {
 
     private lateinit var fragmentDateEditText: EditText
     private lateinit var spinnerAccount: AutoCompleteTextView
