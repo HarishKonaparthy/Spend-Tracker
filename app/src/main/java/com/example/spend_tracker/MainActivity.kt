@@ -64,7 +64,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_view,
                 R.id.nav_dropdown,
                 R.id.nav_pw,
-                R.id.nav_vehicle
+                R.id.nav_vehicle,
+                R.id.nav_jewel
             ), drawerLayout
         )
 

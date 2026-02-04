@@ -16,6 +16,11 @@
         android:name="com.example.spend_tracker.ui.home.CreditFragment"
         android:label="@string/menu_credit"
         tools:layout="@layout/fragment_credit" />
+    <fragment
+        android:id="@+id/nav_jewel"
+        android:name="com.example.spend_tracker.ui.home.JewelFragment"
+        android:label="@string/menu_Jewel"
+        tools:layout="@layout/fragment_jewel" />
 
     <fragment
         android:id="@+id/nav_debit"
