@@ -23,6 +23,10 @@
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="Debit" />
             <item
+                android:id="@+id/nav_jewel"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Jewel" />
+            <item
                 android:id="@+id/nav_view"
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="View" />

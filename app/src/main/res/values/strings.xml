@@ -19,6 +19,7 @@
     <string name="menu_todo">To Do</string>
     <string name="menu_view">View</string>
     <string name="menu_vehicle">Vehicle</string>
+    <string name="menu_Jewel">Jewel</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!--    Form strings-->
@@ -39,4 +40,8 @@
     <string name="form_partial">Partial</string>
     <string name="form_reminder">Rem Count</string>
     <string name="form_table">Table</string>
+    <string name="form_g22">Gold 22k</string>
+    <string name="form_g24">Gold 24k</string>
+    <string name="form_pl">Platinum</string>
+    <string name="form_silver">Silver</string>
 </resources>
