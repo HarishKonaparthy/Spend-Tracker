@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <!-- Home Section -->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_home" />
+    </group>
+
+    <!-- Transactions Section -->
+    <item android:title="Transactions">
+        <menu>
+            <item
+                android:id="@+id/nav_credit"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Credit" />
+            <item
+                android:id="@+id/nav_debit"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Debit" />
+            <item
+                android:id="@+id/nav_view"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="View" />
+        </menu>
+    </item>
+
+    <!-- Lend/Borrow Section -->
+    <item
+        android:id="@+id/nav_lend_section"
+        android:title="Lend / Borrow">
+        <menu>
+            <item
+                android:id="@+id/nav_lendsend"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Lend Send" />
+            <item
+                android:id="@+id/nav_lendreceive"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Lend Receive" />
+            <item
+                android:id="@+id/nav_lendreminder"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Lend Reminder" />
+        </menu>
+    </item>
+    <!-- Lend/Borrow Section -->
+    <item android:title="Other">
+        <menu>
+            <item
+                android:id="@+id/nav_dropdown"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Dropdowns" />
+            <item
+                android:id="@+id/nav_pw"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Password" />
+            <item
+                android:id="@+id/nav_vehicle"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Vehicle" />
+        </menu>
+    </item>
+</menu>

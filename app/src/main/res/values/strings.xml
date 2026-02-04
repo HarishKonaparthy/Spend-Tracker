@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Spend-Tracker</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_debit">Debit</string>
+    <string name="menu_credit">Credit</string>
+    <string name="menu_send">Lend Send</string>
+    <string name="menu_rec">Lend Receive</string>
+    <string name="menu_rem">Lend Reminder</string>
+    <string name="menu_drop">Dropdowns</string>
+    <string name="menu_sync">Sync</string>
+    <string name="menu_password">Password</string>
+    <string name="menu_todo">To Do</string>
+    <string name="menu_view">View</string>
+    <string name="menu_vehicle">Vehicle</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--    Form strings-->
+    <string name="form_date">Date</string>
+    <string name="form_commit_date">Committed Date</string>
+    <string name="form_from">From</string>
+    <string name="form_to">To</string>
+    <string name="form_account">Account</string>
+    <string name="form_cat">Category</string>
+    <string name="form_item">Item</string>
+    <string name="form_amount">Amount</string>
+    <string name="form_comment">Comment</string>
+    <string name="form_submit">Submit</string>
+    <string name="form_load">Re-load data</string>
+    <string name="form_contact_name">Name</string>
+    <string name="form_contact_number">Number</string>
+    <string name="form_full">Full</string>
+    <string name="form_partial">Partial</string>
+    <string name="form_reminder">Rem Count</string>
+    <string name="form_table">Table</string>
+</resources>

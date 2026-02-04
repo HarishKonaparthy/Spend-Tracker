@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.spend_tracker.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_credit"
+        android:name="com.example.spend_tracker.ui.home.CreditFragment"
+        android:label="@string/menu_credit"
+        tools:layout="@layout/fragment_credit" />
+
+    <fragment
+        android:id="@+id/nav_debit"
+        android:name="com.example.spend_tracker.ui.home.DebitFragment"
+        android:label="@string/menu_debit"
+        tools:layout="@layout/fragment_debit" />
+    <fragment
+        android:id="@+id/nav_lendsend"
+        android:name="com.example.spend_tracker.ui.home.LendsendFragment"
+        android:label="@string/menu_send"
+        tools:layout="@layout/fragment_debit" />
+    <fragment
+        android:id="@+id/nav_lendreceive"
+        android:name="com.example.spend_tracker.ui.home.LendreceiveFragment"
+        android:label="LendReceive"
+        tools:layout="@layout/fragment_debit" />
+    <fragment
+        android:id="@+id/nav_lendreminder"
+        android:name="com.example.spend_tracker.ui.home.LendreminderFragment"
+        android:label="@string/menu_rem"
+        tools:layout="@layout/fragment_debit" />
+    <fragment
+        android:id="@+id/nav_dropdown"
+        android:name="com.example.spend_tracker.ui.home.DropdownFragment"
+        android:label="@string/menu_drop"
+        tools:layout="@layout/fragment_debit" />
+
+    <fragment
+        android:id="@+id/nav_pw"
+        android:name="com.example.spend_tracker.ui.home.PwFragment"
+        android:label="@string/menu_password"
+        tools:layout="@layout/fragment_pw" />
+
+    <fragment
+        android:id="@+id/nav_vehicle"
+        android:name="com.example.spend_tracker.ui.home.VehicleFragment"
+        android:label="@string/menu_vehicle"
+        tools:layout="@layout/fragment_vehicle" />
+
+
+</navigation>
